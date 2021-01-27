@@ -1,3 +1,3 @@
-# NgrxDemo
+# Absa Demo
 
-Demo showing NgRx with Angular
+ABSA Demo Angular
