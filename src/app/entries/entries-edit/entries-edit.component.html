@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>{{ this.entryForm.controls.name.value }}</h2>
+  <h6>{{ this.entryForm.controls.phonebookName.value }} <span class="text-primary">phone book</span></h6>
+  <form [formGroup]="entryForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Id</label>
+      <input type="text" class="form-control" formControlName="entryId" readonly />
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" formControlName="name" />
+      <div class="alert alert-danger" [hidden]="!entry || entryForm.controls.name.valid">Name is required</div>
+    </div>
+    <div class="form-group">
+      <label for="phonenumber">Phone number</label>
+      <input type="text" class="form-control" formControlName="phonenumber" />
+      <div class="alert alert-danger" [hidden]="!entry || entryForm.controls.phonenumber.valid">Phone number is required</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!entryForm.valid">Submit</button>
+  </form>
+  <br />
+  <a routerLink="/entries">View all entries</a>
+</div>

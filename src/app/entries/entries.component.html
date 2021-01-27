@@ -1,0 +1,5 @@
+<h1>{{ title }}</h1>
+<br />
+<div *ngIf="entries$ | async as entries">
+    <app-entries-list [entries]="entries"></app-entries-list>
+</div>

@@ -1,0 +1,29 @@
+<app-filter-textbox (changed)="filter($event)"></app-filter-textbox> <a [routerLink]="['/entries/add']" class="float-right">Add an entry</a>
+<br />
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th (click)="sort('name')">Name</th>
+            <th (click)="sort('phonenumber')">Phone number</th>
+            <th colspan="2">&nbsp;</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let entr of filteredEntries">
+        <td>{{ entr.name | capitalize }}</td>
+        <td>{{ entr.phonenumber }}</td>
+        <td><a [routerLink]="['/entries', entr.entryId]">Edit</a></td>
+    </tr>
+    <tr *ngIf="filteredEntries && filteredEntries.length">
+        <td colspan="2">&nbsp;</td>
+        <td>
+            {{ entriesOrderTotal | currency:currencyCode:'symbol' }}
+        </td>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr *ngIf="!filteredEntries || !filteredEntries.length">
+        <td colspan="4">No entries found</td>
+    </tr>
+</table>
+Number of Entries: {{ filteredEntries.length }}
+<br />
